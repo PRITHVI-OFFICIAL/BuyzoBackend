@@ -2,14 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 10000;
 const dotenv=require('dotenv');
-dotenv.config({ path: './config.env' });
+// dotenv.config({ path: './config.env' });
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-const DB=process.env.DATABASE.replace('<password>',process.env.DATABASE_PASSWORD);
-mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
+const DB="mongodb+srv://prithviofficial02:gekTxVbhMnoiRdrP@cluster0.4j68sxj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+mongoose.connect(DB)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Error connecting to MongoDB', err));
 
