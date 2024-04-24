@@ -14,6 +14,9 @@ mongoose.connect(DB)
   .catch(err => console.error('Error connecting to MongoDB', err));
 
 
+app.get('/check', (req, res) => {
+    res.send('Ecommerce Backend Running');
+});
 
 
 const productSchema = new mongoose.Schema({
@@ -45,6 +48,7 @@ const userSchema = new mongoose.Schema({
   });
   
   const User = mongoose.model('User', userSchema,'users');
+
 
 
   app.post('/signup', async (req, res) => {
